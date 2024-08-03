@@ -17,13 +17,14 @@ import {
   IS_UNDERLINE,
 } from './nodeFormat'
 import type { Page } from '../../../payload-types'
+type ExtendedBannerBlockProps = BannerBlockProps & { [key: string]: unknown }
 
 export type NodeTypes =
   | DefaultNodeTypes
   | SerializedBlockNode<
       | Extract<Page['layout'][0], { blockType: 'cta' }>
       | Extract<Page['layout'][0], { blockType: 'mediaBlock' }>
-      | BannerBlockProps
+      | ExtendedBannerBlockProps
       | CodeBlockProps
     >
 
