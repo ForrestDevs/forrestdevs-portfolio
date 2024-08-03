@@ -1,6 +1,4 @@
-// storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
@@ -33,6 +31,7 @@ import { Header } from './payload/globals/Header/Header'
 import { revalidateRedirects } from './payload/hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { Page, Post } from 'src/payload-types'
+import { About } from './payload/globals/About'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -128,7 +127,7 @@ export default buildConfig({
       path: '/seed',
     },
   ],
-  globals: [Header, Footer],
+  globals: [Header, Footer, About],
   plugins: [
     redirectsPlugin({
       collections: ['pages', 'posts'],

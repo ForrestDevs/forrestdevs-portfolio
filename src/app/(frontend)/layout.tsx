@@ -24,12 +24,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
-          <AdminBar />
-          <LivePreviewListener />
+          {/* <AdminBar />
+          <LivePreviewListener /> */}
 
-          <Header />
+          {/* <Header /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>

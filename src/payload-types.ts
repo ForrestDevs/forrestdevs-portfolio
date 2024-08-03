@@ -22,9 +22,13 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
+  db: {
+    defaultIDType: string;
+  };
   globals: {
     header: Header;
     footer: Footer;
+    'home-data': HomeDatum;
   };
   locale: null;
   user: User & {
@@ -36,12 +40,15 @@ export interface UserAuthOperations {
     email: string;
   };
   login: {
-    password: string;
     email: string;
+    password: string;
   };
   registerFirstUser: {
     email: string;
     password: string;
+  };
+  unlock: {
+    email: string;
   };
 }
 /**
@@ -628,6 +635,81 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-data".
+ */
+export interface HomeDatum {
+  id: string;
+  About?: {
+    name?: string | null;
+    initials?: string | null;
+    url?: string | null;
+    location?: string | null;
+    locationLink?: string | null;
+    description?: string | null;
+    summary?: string | null;
+    avatarUrl?: string | null;
+  };
+  Contact?: {
+    email?: string | null;
+    tel?: string | null;
+    social?:
+      | {
+          name?: string | null;
+          url?: string | null;
+          icon?: string | null;
+          navbar?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  Skills?: {
+    skills?:
+      | {
+          skill?: string | null;
+          icon?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  Education?: {
+    education?:
+      | {
+          school?: string | null;
+          href?: string | null;
+          degree?: string | null;
+          logoUrl?: string | null;
+          start?: string | null;
+          end?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  Work?: {
+    work?:
+      | {
+          company?: string | null;
+          href?: string | null;
+          badges?:
+            | {
+                badge?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          location?: string | null;
+          title?: string | null;
+          logoUrl?: string | null;
+          start?: string | null;
+          end?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
