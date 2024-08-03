@@ -5,7 +5,7 @@ export default function Page() {
     <Main>
       <Section>
         <Container>
-          <h1>Heading</h1>
+          {/* <h1>Heading</h1> */}
           <p>Content</p>
           {/* <ParticlesDemo /> */}
           {/* <GlobeDemo /> */}
